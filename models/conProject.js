@@ -21,6 +21,10 @@ const ConProjectSchema = new Schema({
   image: {
     type: String,
   },
+  points: {
+    type: [String],
+  },
+  
 });
 
 const ConProject = models.ConProject || model("ConProject", ConProjectSchema);
