@@ -24,6 +24,9 @@ const ConProjectSchema = new Schema({
   points: {
     type: [String],
   },
+  ytId: {
+    type: String,
+  },
   
 });
 

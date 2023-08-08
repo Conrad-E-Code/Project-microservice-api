@@ -1,6 +1,7 @@
 import { connectToDB } from "/utils/db";
 import ConProject from "/models/conProject";
 
+export const dynamic = 'force-dynamic';
 export const GET = async (req) => {
     try {
         await connectToDB();
