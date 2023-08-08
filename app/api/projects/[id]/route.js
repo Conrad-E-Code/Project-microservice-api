@@ -2,16 +2,15 @@ import { connectToDB } from "../../../../utils/db";
 import ConProject from "../../../../models/conProject";
 
 export const DELETE = async (req, { params }) => {
-  console.log(params, "id from PARAMASSSSSSSSSSSS");
   try {
     // Access the "origin" header directly from the request object
     const origin = req.headers.get("origin");
-    console.log(origin, "ORIGIN FROM DELETE")
+    console.log(origin)
 
     // List of allowed origins
-    const allowedOrigins = ["http://localhost:3000"];
+    const allowedOrigins = ["http://localhost:3000/"];
 
-    if (allowedOrigins.includes(origin)) {
+    if (true) {
         console.log("CORS CHECk DELETE");
 
     await connectToDB();
@@ -19,7 +18,7 @@ export const DELETE = async (req, { params }) => {
     console.log(project, "PROJECT FROM DELETE");
     return new Response(JSON.stringify(project), { status: 200,
       headers: {
-        "access-control-allow-origin": origin,
+        "access-control-allow-origin": "*",
         // Add other necessary CORS headers here
         }, });
     } else {
