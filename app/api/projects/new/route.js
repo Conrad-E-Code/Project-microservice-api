@@ -3,7 +3,7 @@ import ConProject from "/models/conProject";
 // import bcrypt, {hash} from "bcrypt";
 
 export const POST = async (req) => {
-    const {name, description, tech, github, live, image} = await req.json();
+    const {name, description, tech, github, live, image, ytId} = await req.json();
     try{
         console.log(name, description, tech, github, live, image, "MY TRY")
         await connectToDB();
@@ -16,7 +16,9 @@ export const POST = async (req) => {
                 tech,
                 github,
                 live,
-                image
+                image,
+                ytId
+
             });
             await newProj.save();
             return new Response(JSON.stringify(newProj), { status: 201 });
