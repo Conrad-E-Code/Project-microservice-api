@@ -16,7 +16,7 @@ export const DELETE = async (req, { params }) => {
 
 export const PATCH = async (req, { params }) => {
     console.log(params, "id from PARAMASSSSSSSSSSSS");
-    const {name, description, tech, github, live, image} = await req.json();
+    const {name, description, tech, github, live, image, points} = await req.json();
     try {
         await connectToDB();
         const project = await ConProject.findByIdAndUpdate(params.id, {
@@ -25,12 +25,16 @@ export const PATCH = async (req, { params }) => {
             tech,
             github,
             live,
-            image
+            image,
+            points
         });
         console.log(project, "PROJECT FROM PATCH");
         return new Response(JSON.stringify(project), { status: 200 });
     }
     catch (error) {
         console.log(error, "MY ERROR");
+        return new Response(JSON.stringify({ error: error }), {
+            status: 500
+        });
     }
 }
