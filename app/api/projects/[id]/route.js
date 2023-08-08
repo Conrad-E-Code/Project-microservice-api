@@ -60,13 +60,3 @@ export const PATCH = async (req, { params }) => {
     });
   }
 };
-
-export const OPTIONS = async (req) => {
-  try {
-    return new Response(JSON.stringify({message: "ok"}), {
-      status: 200,
-})
-  } catch (error) {
-    console.log(error, "MY ERROR");
-  }
-};
