@@ -2,34 +2,34 @@ import { connectToDB } from "../../../../utils/db";
 import ConProject from "../../../../models/conProject";
 
 export const DELETE = async (req, { params }) => {
-  console.log(params, "id from PARAMASSSSSSSSSSSS");
   try {
     // Access the "origin" header directly from the request object
-    const origin = req.headers.get("origin");
-    console.log(origin, "ORIGIN FROM DELETE")
+    // const origin = req.headers.get("origin");
+    // console.log(origin)
 
-    // List of allowed origins
-    const allowedOrigins = ["http://localhost:3000"];
+    // // List of allowed origins
+    // const allowedOrigins = ["http://localhost:3000/"];
 
-    if (allowedOrigins.includes(origin)) {
-        console.log("CORS CHECk DELETE");
+    // if (true) {
+    //     console.log("CORS CHECk DELETE");
 
     await connectToDB();
     const project = await ConProject.findByIdAndDelete(params.id);
     console.log(project, "PROJECT FROM DELETE");
     return new Response(JSON.stringify(project), { status: 200,
-      headers: {
-        "access-control-allow-origin": origin,
-        // Add other necessary CORS headers here
-        }, });
-    } else {
-        return new Response("Not allowed by CORS", {
-            status: 403,
-            headers: {
-            // You can set appropriate headers for a forbidden response
-            },
-        });
-        }
+      // headers: {
+      //   "access-control-allow-origin": "*",
+      //   // Add other necessary CORS headers here
+      //   },
+       });
+    // } else {
+        // return new Response("Not allowed by CORS", {
+        //     status: 403,
+        //     headers: {
+        //     // You can set appropriate headers for a forbidden response
+        //     },
+        // });
+        // }
   } catch (error) {
     console.log(error, "MY ERROR");
   }
