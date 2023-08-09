@@ -3,9 +3,9 @@ import ConProject from "/models/conProject";
 // import bcrypt, {hash} from "bcrypt";
 
 export const POST = async (req) => {
-    const {name, description, tech, github, live, image, ytId} = await req.json();
+    const {name, description, tech, github, live, image, ytId, points} = await req.json();
     try{
-        console.log(name, description, tech, github, live, image, "MY TRY")
+        console.log(name, description, tech, github, live, image, points, "MY TRY")
         await connectToDB();
         const proj = await ConProject.findOne({name});
         if (!proj) {
@@ -17,7 +17,8 @@ export const POST = async (req) => {
                 github,
                 live,
                 image,
-                ytId
+                ytId,
+                points
 
             });
             await newProj.save();
