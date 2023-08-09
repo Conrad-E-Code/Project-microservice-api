@@ -27,6 +27,6 @@ export const GET = async (req) => {
         //     });
         // }
     } catch (error) {
-        console.log(error, "MY ERROR");
+        console.log(error, "GET error pjms route");
     }
 };
