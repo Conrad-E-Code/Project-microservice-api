@@ -11,6 +11,7 @@ const ConProjectSchema = new Schema({
   },
   tech: {
     type: [String],
+    required: [true, "Don't forget Technologies"]
   },
   github: {
     type: String,
@@ -33,12 +34,3 @@ const ConProjectSchema = new Schema({
 const ConProject = models.ConProject || model("ConProject", ConProjectSchema);
 
 export default ConProject;
-
-// const proj = {
-//   name: "Placomatic Mobile App",
-//   description: "A mobile app for the Placomatic project",
-//   tech: ["React Native", "Expo", "Firebase"],
-//   github: "",
-//   live: "https://expo.io/@conradetherington/placomatic",
-//   image: "https://i.imgur.com/0QZQY5m.png",
-// };

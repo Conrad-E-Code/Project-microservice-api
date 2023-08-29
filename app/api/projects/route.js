@@ -2,6 +2,8 @@ import { connectToDB } from "/utils/db";
 import ConProject from "/models/conProject";
 
 export const dynamic = 'force-dynamic';
+
+//ROUTE HANDLER
 export const GET = async (req) => {
     try {
         // Access the "origin" header directly from the request object
